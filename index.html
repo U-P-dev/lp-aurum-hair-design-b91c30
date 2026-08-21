@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美容院 オーラム ヘア デザイン(AURUM Hair Design) | 美容院のランディングページ</title>
+
+<style>
+  :root{
+    --paper:#ffffff;
+    --paper-2:#F2F2F5;       
+    --paper-3:#FAF9F8;       
+    --ink:#1C1C1C;
+    --ink-2:#55555c;
+    --gray:#818188;          
+    --gray-d:#6e6e75;        
+    --line:#dcdce1;
+    --slot-bg:rgba(28,28,28,.04);
+    --slot-line:#b5bcc4;
+    --slot-edge:#8e99a4;     
+    --jp:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium",
+         "Yu Gothic","Meiryo",sans-serif;
+    
+    --num:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Courier New",monospace;
+    
+    --space:clamp(46px,7vw,92px);
+  }
+  
+  html{font-size:clamp(13px,0.29vw + 11.9px,16px);scroll-behavior:smooth}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--jp);font-size:1rem;
+    line-height:1.9;letter-spacing:.06em;
+    font-feature-settings:"palt";
+    -webkit-font-smoothing:antialiased;
+    padding-top:104px;           
+  }
+  img{max-width:100%}
+  a{color:var(--ink);text-decoration:none}
+  
+  .np{display:inline-block}
+  .num{font-family:var(--num);letter-spacing:.02em;font-feature-settings:normal}
+
+  
+  
+  .ph{position:relative;overflow:hidden;background:#eceae6;
+    border:1px dashed var(--slot-edge)}
+  .ph::after{ 
+    content:attr(data-slot);position:absolute;right:6px;bottom:6px;
+    max-width:calc(100% - 12px);
+    font-family:var(--num);font-size:10px;letter-spacing:.06em;
+    color:rgba(28,28,28,.7);background:rgba(255,255,255,.88);
+    padding:3px 9px;border:1px solid var(--slot-edge);border-radius:2px;
+    line-height:1.7;text-align:right}
+
+  
+  
+  header{position:fixed;inset:0 0 auto 0;z-index:50;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    padding:8px 0 14px;border-bottom:1px solid var(--line)}
+  header::before,header::after{content:"";position:absolute;left:0;right:0;
+    background-repeat:repeat-x;pointer-events:none}
+  header::before{top:0;height:8px;
+    background-image:repeating-linear-gradient(-45deg,
+      var(--gray) 0 1px,transparent 1px 6px)}
+  header::after{bottom:0;height:14px;
+    background-image:repeating-linear-gradient(-45deg,
+      var(--gray) 0 2px,transparent 2px 8px)}
+  .hd{width:min(83.33%,1240px);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:2rem;
+    padding:10px 0}
+  
+  .brand{display:flex;flex-direction:column;gap:2px;white-space:nowrap}
+  .brand__en{font-size:clamp(15px,1.35vw,19px);letter-spacing:.24em;
+    line-height:1.2}
+  .brand__jp{font-size:11px;letter-spacing:.16em;color:var(--ink-2);
+    line-height:1.2}
+  .hd nav{display:flex;align-items:center;gap:1.8rem}
+  .hd nav a{font-size:12px;letter-spacing:.16em;white-space:nowrap}
+  .hd nav a:hover{color:var(--gray-d);transition:color .3s}
+  .hd__cta{display:flex;gap:10px;flex:0 0 auto}
+  .btn{display:inline-flex;align-items:center;justify-content:center;
+    white-space:nowrap;border:1px solid var(--ink);
+    padding:11px 18px;font-size:12px;letter-spacing:.14em;line-height:1.5}
+  .btn--fill{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn:hover{opacity:.72;transition:opacity .3s}
+
+  
+  
+  .inbox{width:min(83.33%,1240px);margin:0 auto}
+  .inbox-min{width:min(87.5%,880px);margin:0 auto}
+  .sec{padding:var(--space) 0}
+  .sec--tint{background:var(--paper-3)}
+
+  
+  
+  .ttl{display:flex;flex-direction:column-reverse;align-items:flex-start;
+    gap:.55rem;margin-bottom:1.6rem}
+  .ttl::after{content:"";width:2rem;height:2px;background:currentColor;
+    opacity:.4}
+  .ttl__jp{font-size:clamp(21px,2.3vw,28px);font-weight:600;
+    letter-spacing:.22em;line-height:1.5}
+  .ttl__en{font-family:var(--num);font-size:11px;letter-spacing:.3em;
+    color:var(--gray-d);line-height:1.4}
+  .ttl--c{align-items:center;text-align:center}
+  .lead{max-width:34em;font-size:1rem;line-height:2}
+  .lead + .lead{margin-top:.7rem}
+
+  
+  
+  .mv{padding:calc(var(--space)*.8) 0 var(--space)}
+  .mv__head{text-align:center;margin-bottom:2.2rem}
+  .mv__catch{font-size:clamp(26px,4.4vw,44px);font-weight:600;
+    letter-spacing:.22em;line-height:1.75;
+    max-width:22ch;margin:0 auto}   
+  .mv__meta{margin-top:1.1rem;font-size:12.5px;letter-spacing:.2em;
+    color:var(--ink-2)}
+  .mv__meta .en{font-family:var(--num);letter-spacing:.16em}
+  .mv__photos{display:flex;gap:1.2rem;align-items:flex-end}
+  .mv__photo{flex:1 1 auto;aspect-ratio:16/9}
+  .mv__photo--sq{flex:0 0 clamp(150px,21%,250px);aspect-ratio:1/1}
+
+  
+  
+  .points{display:grid;gap:1.2rem;
+    grid-template-columns:repeat(auto-fit,minmax(238px,1fr))}
+  .card{background:var(--paper-2);padding:10px}
+  .card__in{border:2px solid var(--gray);padding:1.5rem 1.25rem;height:100%}
+  .card__no{display:block;font-family:var(--num);font-size:22px;
+    letter-spacing:.08em;color:var(--gray-d);
+    border-bottom:2px solid var(--gray);padding-bottom:.5rem;
+    margin-bottom:.9rem;line-height:1.2}
+  .card h3{font-size:1rem;font-weight:600;letter-spacing:.1em;line-height:1.8}
+  .card p{margin-top:.5rem;font-size:.92rem;line-height:1.95;color:var(--ink-2)}
+
+  
+  .grp + .grp{margin-top:2.6rem}
+  
+  .grp__head{display:flex;flex-wrap:wrap;align-items:baseline;
+    justify-content:space-between;gap:.4rem 1.5rem;
+    background:var(--gray-d);color:#fff;padding:.85rem 1.15rem}
+  .grp__name{font-size:1.06rem;font-weight:600;letter-spacing:.12em;
+    line-height:1.6}
+  .grp__en{font-family:var(--num);font-size:11.5px;letter-spacing:.22em;
+    opacity:.92;line-height:1.6}
+  .grp__body{padding:1.15rem 0 0}
+  
+  .grp__note{margin-top:.55rem;font-size:.86rem;letter-spacing:.08em;
+    color:var(--ink-2)}
+  .rows{margin-top:1rem;border-top:1px solid var(--line)}
+  
+  .row{display:flex;flex-wrap:wrap;align-items:baseline;
+    justify-content:space-between;gap:.2rem 1.2rem;padding:.7rem 1.15rem}
+  .rows .row:nth-child(odd){background:var(--paper-2)}
+  .row__name{font-size:.98rem;letter-spacing:.08em;min-width:0}
+  .row__price{font-family:var(--num);font-size:22px;letter-spacing:.02em;
+    white-space:nowrap;line-height:1.5}
+  .row--add .row__price{font-size:19px;color:var(--ink-2)}
+  .menu-note{max-width:40em;margin-top:1.6rem;font-size:.88rem;
+    line-height:1.95;color:var(--ink-2)}
+  .price-foot{margin-top:2.6rem;display:flex;flex-wrap:wrap;gap:1.4rem}
+  .price-foot > *{flex:1 1 300px}
+
+  
+  .cc{display:flex;gap:2.4rem;align-items:flex-start}
+  .cc__photo{flex:0 0 38%;aspect-ratio:4/3}
+  .cc__text{flex:1 1 auto}
+  .cc__decl{font-size:clamp(18px,2vw,24px);font-weight:600;
+    letter-spacing:.14em;line-height:1.8;margin-bottom:.9rem}
+
+  
+  .access{display:flex;gap:2.4rem;align-items:flex-start}
+  .access__body{flex:1 1 auto}
+  .info div{display:flex;gap:1rem;border-bottom:1px solid var(--line);
+    padding:.8rem .2rem}
+  .info dt{flex:0 0 7em;font-size:.88rem;color:var(--ink-2);
+    letter-spacing:.12em}
+  .info dd{flex:1 1 auto;font-size:.96rem;min-width:0}
+  .info__map{flex:0 0 40%;aspect-ratio:4/3}
+
+  
+  .reserve{text-align:center}
+  .reserve__btns{margin-top:1.6rem;display:flex;gap:1rem;
+    justify-content:center;flex-wrap:wrap}
+  .btn-lg{display:inline-flex;align-items:center;justify-content:center;
+    min-width:min(300px,84vw);padding:21px 30px;
+    border:1px solid var(--ink);font-size:15px;letter-spacing:.2em;
+    line-height:1.5;white-space:nowrap}
+  .btn-lg--fill{background:var(--ink);color:#fff}
+  .btn-lg:hover{opacity:.75;transition:opacity .3s}
+  .reserve__tel{margin-top:1.4rem;font-size:.95rem;letter-spacing:.12em}
+
+  
+  footer{margin-top:var(--space);border-top:1px solid var(--line);
+    padding:2.8rem 0 3.4rem;text-align:center}
+  footer .brand{align-items:center;margin-bottom:1rem}
+  footer p{font-size:.85rem;line-height:2;color:var(--ink-2)}
+  footer small{display:block;margin-top:1.6rem;font-family:var(--num);
+    font-size:10px;letter-spacing:.2em;color:var(--ink-2)}
+
+  
+  
+  .sp-bar{display:none}
+  @media(max-width:1100px){
+    .hd nav{display:none}
+  }
+  @media(max-width:820px){
+    body{padding-top:96px;padding-bottom:56px}
+    .inbox,.inbox-min,.hd{width:87.5%}
+    .hd{gap:1rem}
+    
+    .hd__cta .btn:not(.btn--fill){display:none}
+    .hd__cta .btn{padding:10px 13px;font-size:11.5px}
+    .brand{min-width:0;max-width:100%}
+    .brand__en,.brand__jp{max-width:100%;overflow:hidden;text-overflow:ellipsis}
+    .brand__jp{font-size:10.5px}
+    .mv__photos{flex-direction:column;align-items:stretch}
+    .mv__photo--sq{flex:0 0 auto;width:52%;align-self:flex-end}
+    .price-foot{gap:2rem}
+    .cc,.access{flex-direction:column;gap:1.6rem}
+    .cc__photo,.info__map{flex:0 0 auto;width:100%}
+    .info dt{flex:0 0 5.6em}
+    .sp-bar{display:flex;position:fixed;inset:auto 0 0 0;z-index:60}
+    .sp-bar a{flex:1;text-align:center;padding:15px 0;font-size:12.5px;
+      letter-spacing:.12em;color:#fff;background:var(--ink)}
+    .sp-bar a + a{border-left:1px solid rgba(255,255,255,.25)}
+  }
+
+  
+  
+  .js .fade-up{opacity:0;transform:translateY(24px);
+    transition:opacity .8s ease-out,transform .8s ease-out}
+  .js .fade-up.show{opacity:1;transform:none}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    
+    .js .fade-up{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  @media(max-width:820px){}
+  
+  .spec{max-width:1080px;margin:70px auto 60px;padding:34px 4vw;
+    border:1px dashed var(--slot-line);background:var(--slot-bg);
+    font-size:12.5px;line-height:2.1;color:var(--ink);overflow-x:auto}
+  .spec h3{font-size:13px;letter-spacing:.2em;margin-bottom:10px}
+  
+  .spec strong{display:block;margin-top:.5em}
+  
+  .spec code{display:inline-block;white-space:nowrap}
+  .spec table{border-collapse:collapse;width:100%;margin:10px 0}
+  .spec td,.spec th{border:1px solid var(--gray);padding:5px 12px;
+    text-align:left;font-weight:normal;font-size:12px}
+
+
+.ph::after,.ph::before{content:none!important;display:none!important}
+.ph{border:0!important;background:transparent!important}
+.ph>img,.ph .slide>img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .slide{background-size:cover;background-position:center}
+</style>
+
+<script>document.documentElement.classList.add('js')</script>
+<meta name="description" content="美容院の美容院 オーラム ヘア デザイン(AURUM Hair Design)。日本、〒167-0051 東京都杉並区荻窪５丁目２１−８ １Fにて営業中。お気軽にお問い合わせください。">
+<meta property="og:title" content="美容院 オーラム ヘア デザイン(AURUM Hair Design)">
+<meta property="og:description" content="美容院の美容院 オーラム ヘア デザイン(AURUM Hair Design)。日本、〒167-0051 東京都杉並区荻窪５丁目２１−８ １F">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="./">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "美容院 オーラム ヘア デザイン(AURUM Hair Design)", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0051 東京都杉並区荻窪５丁目２１−８ １F"}, "telephone": "03-3398-6286"}</script>
+<style>
+nav.vbar{position:relative !important;z-index:10000 !important;display:block !important;
+  background:#1c1c1c !important;color:#fff !important;margin:0 !important;
+  padding:12px 0 !important;font-size:13px !important;line-height:1.7 !important;
+  font-family:sans-serif !important;max-width:none !important;
+  opacity:1 !important;visibility:visible !important;transform:none !important}
+nav.vbar .vbar__inner{max-width:1080px !important;margin:0 auto !important;
+  padding:0 20px !important;display:flex !important;flex-wrap:wrap !important;
+  gap:10px 18px !important;align-items:center !important;width:auto !important}
+nav.vbar .vbar__note{opacity:.75 !important;flex:1 1 260px !important;
+  min-width:0 !important;color:#fff !important}
+nav.vbar .vbar__list{display:flex !important;flex-wrap:wrap !important;gap:8px !important;
+  list-style:none !important;margin:0 !important;padding:0 !important}
+nav.vbar .vbar__list li{display:block !important;margin:0 !important;padding:0 !important;
+  list-style:none !important;width:auto !important}
+nav.vbar .vbar__link{display:inline-block !important;color:#fff !important;
+  text-decoration:none !important;padding:6px 14px !important;font-size:13px !important;
+  border-radius:999px !important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4) !important;
+  background:transparent !important;opacity:1 !important;visibility:visible !important;
+  transform:none !important;letter-spacing:normal !important}
+nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !important;
+  font-weight:700 !important;box-shadow:none !important}
+@media (max-width:520px){
+  nav.vbar{padding:8px 0 !important;font-size:12px !important;line-height:1.5 !important}
+  nav.vbar .vbar__inner{padding:0 14px !important;gap:8px 10px !important}
+  nav.vbar .vbar__link{padding:5px 10px !important;font-size:12px !important}
+}
+#contact{padding:72px 20px}
+#contact .narrow{max-width:560px;margin:0 auto}
+#contact .cta h2{font-size:24px;margin:0 0 12px}
+#contact .cta__body{margin:0 0 24px;line-height:1.9}
+#contact .cta__actions{margin:0 0 28px}
+#contact .hero__actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+#contact .form{display:grid;gap:18px;text-align:left}
+#contact .field{display:grid;gap:8px}
+#contact .field label{font-size:14px;font-weight:700}
+#contact .field input,#contact .field textarea{font:inherit;color:#1c1c1c;
+  background:#fff;border:1px solid rgba(0,0,0,.3);border-radius:6px;padding:12px 14px}
+#contact .field textarea{min-height:150px;resize:vertical}
+#contact .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;
+  color:#fff;background:#1c1c1c;border:0;border-radius:6px;padding:14px 26px;
+  text-decoration:none;cursor:pointer}
+#contact .btn--ghost{color:#1c1c1c;background:transparent;
+  box-shadow:inset 0 0 0 1.5px #1c1c1c}
+#contact .ic{flex:none}
+#contact .form__note{font-size:12px;opacity:.7;margin:0}
+#contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
+#privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
+#privacy-policy .narrow{max-width:720px;margin:0 auto}
+#privacy-policy h2{font-size:18px;margin:0 0 16px}
+#privacy-policy h3{font-size:14px;margin:20px 0 6px}
+</style>
+</head>
+<body>
+<nav class="vbar" aria-label="デザイン案の切り替え"><div class="wrap vbar__inner"><span class="vbar__note">エレノアが美容院 オーラム ヘア デザイン(AURUM Hair Design)様へのご提案として作成した見本です。美容院 オーラム ヘア デザイン(AURUM Hair Design)様ご自身が公開されているものではありません。</span><ul class="vbar__list"><li><a class="vbar__link" href="./" aria-current="page">1　料金表が主役</a></li><li><a class="vbar__link" href="2/">2　入口で分ける</a></li><li><a class="vbar__link" href="3/">3　余白で見せる（リッチプラン専用デザイン）</a></li></ul></div></nav>
+
+
+<header>
+  <div class="hd">
+    <a class="brand" href="#top">
+      <span class="brand__en">AURUM Hair Design</span>
+      <span class="brand__jp">美容院 オーラム ヘア デザイン(AURUM Hair Design)</span>
+    </a>
+    <nav>
+      <a href="#point">POINT</a>
+      <a href="#price">PRICE MENU</a>
+      <a href="#concept">CONCEPT</a>
+      <a href="#access">ACCESS</a>
+    </nav>
+    <div class="hd__cta">
+      <a class="btn btn--fill" href="#reserve">WEB予約</a>
+      <a class="btn" href="tel:0300000000">お電話</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  
+  <div class="mv">
+    <div class="inbox">
+      <div class="mv__head">
+        <h1 class="mv__catch">
+          <span class="np">髪から、</span><span class="np">整えていく。</span>
+        </h1>
+        <p class="mv__meta">
+          AURUM Hair Design — 美容院 / 東京都杉並区荻窪
+        </p>
+      </div>
+      <div class="mv__photos">
+        <div class="mv__photo ph"><img src="https://images.unsplash.com/photo-1613754773306-532ec48b0de5?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8Mnx8aGFpciUyMHNhbG9uJTIwaGFuZHMlMjBjbG9zZXVwfGVufDF8MHx8fDE3ODcyNzgwMjR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="目もと or 施術の主写真" loading="eager" fetchpriority="high" decoding="async"></div>
+        <div class="mv__photo--sq ph"><img src="https://images.unsplash.com/photo-1763741141049-352dfafcc64f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8aGFpciUyMHNhbG9uJTIwaW50ZXJpb3J8ZW58MXwyfHx8MTc4NzI3ODA0NXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店内 or 道具" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <section id="point" class="sec sec--tint">
+    <div class="inbox">
+      <h2 class="ttl">
+        <span class="ttl__jp">選ばれる理由</span>
+        <span class="ttl__en">Reasons</span>
+      </h2>
+      <div class="points fade-up">
+        <div class="card">
+          <div class="card__in">
+            <span class="card__no">01</span>
+            <h3>髪質を見てから決める</h3>
+            <p><span class="np">最初に髪の状態と</span><span class="np">普段の手入れを伺い、</span><span class="np">その日にできることを</span><span class="np">ご説明してから始めます。</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__in">
+            <span class="card__no">02</span>
+            <h3>続けやすい形にする</h3>
+            <p><span class="np">伸びてきたときの</span><span class="np">見え方まで考えて、</span><span class="np">ご自宅でも整えやすい</span><span class="np">長さと量に調整します。</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__in">
+            <span class="card__no">03</span>
+            <h3>落ち着いて過ごせる時間</h3>
+            <p><span class="np">混み合う時間を避けて</span><span class="np">ご案内できるよう、</span><span class="np">ご予約の時間に合わせて</span><span class="np">席をご用意しています。</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+  <section id="price" class="sec">
+    <div class="inbox-min">
+      <h2 class="ttl">
+        <span class="ttl__jp">メニュー</span>
+        <span class="ttl__en">Menu</span>
+      </h2>
+      <p class="lead">
+        <span class="np">メニューは仕上がりと</span><span class="np">所要時間の目安で</span><span class="np">分けています。</span><span class="np">料金は施術内容と</span><span class="np">髪の長さによって</span><span class="np">変わります。</span>
+      </p>
+
+      <div class="grp fade-up">
+        <div class="grp__head">
+          <h3 class="grp__name">カット</h3>
+          <span class="grp__en">Cut</span>
+        </div>
+        <div class="grp__body">
+          <p class="lead">
+            <span class="np">骨格と髪の生え方を見て</span><span class="np">長さと量を決めます。</span><span class="np">仕上げに乾かし方も</span><span class="np">お伝えするので、</span><span class="np">翌日から扱いやすくなります。</span>
+          </p>
+          <p class="grp__note">
+            所要時間の目安：約60分
+          </p>
+          <div class="rows">
+            <div class="row">
+              <span class="row__name">カット</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">前髪カット</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">シャンプー・ブロー</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">キッズカット</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">メンズカット</span>
+              <span class="row__price">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grp fade-up">
+        <div class="grp__head">
+          <h3 class="grp__name">カラー</h3>
+          <span class="grp__en">Color</span>
+        </div>
+        <div class="grp__body">
+          <p class="lead">
+            <span class="np">根元のみか全体かで</span><span class="np">使う薬剤の量が変わり、</span><span class="np">料金が変わります。</span><span class="np">髪の長さによっても</span><span class="np">所要時間が変わります。</span>
+          </p>
+          <div class="rows">
+            <div class="row">
+              <span class="row__name">リタッチカラー</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">フルカラー</span>
+              <span class="row__price">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grp fade-up">
+        <div class="grp__head">
+          <h3 class="grp__name">パーマ</h3>
+          <span class="grp__en">Perm</span>
+        </div>
+        <div class="grp__body">
+          <p class="lead">
+            <span class="np">かける範囲とロッドの数で</span><span class="np">所要時間と料金が</span><span class="np">変わります。当日の髪の</span><span class="np">状態を見てご相談します。</span>
+          </p>
+          <p class="grp__note">
+            カット料金は含まれません
+          </p>
+          <div class="rows">
+            <div class="row">
+              <span class="row__name">パーマ</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">毛先パーマ</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">デジタルパーマ</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">メンズパーマ</span>
+              <span class="row__price">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grp fade-up">
+        <div class="grp__head">
+          <h3 class="grp__name">縮毛矯正</h3>
+          <span class="grp__en">Straightening</span>
+        </div>
+        <div class="grp__body">
+          <p class="lead">
+            <span class="np">かける範囲が根元だけか</span><span class="np">全体かで料金が変わります。</span><span class="np">前回かけた部分との</span><span class="np">境目を見ながら、</span><span class="np">薬剤と時間を調整します。</span>
+          </p>
+          <div class="rows">
+            <div class="row">
+              <span class="row__name">縮毛矯正</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">前髪ストレート</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">部分ストレート</span>
+              <span class="row__price">—</span>
+            </div>
+            <div class="row">
+              <span class="row__name">ストレート＋カット</span>
+              <span class="row__price">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grp fade-up">
+        <div class="grp__head">
+          <h3 class="grp__name">トリートメント</h3>
+          <span class="grp__en">Treatment</span>
+        </div>
+        <div class="grp__body">
+          <p class="lead">
+            <span class="np">施術内容によって</span><span class="np">工程数が変わります。</span><span class="np">髪の状態を見てから</span><span class="np">内容をご提案します。</span>
+          </p>
+          <div class="rows">
+            <div class="row">
+              <span class="row__name">トリートメント</span>
+              <span class="row__price">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="price-foot">
+        <div class="grp fade-up" style="margin-top:0">
+          <div class="grp__head">
+            <h3 class="grp__name">ヘアセット</h3>
+            <span class="grp__en">Hair Set</span>
+          </div>
+          <div class="grp__body">
+            <div class="rows" style="margin-top:0">
+              <div class="row row--add">
+                <span class="row__name">ヘアセット</span>
+                <span class="row__price">—</span>
+              </div>
+              <div class="row row--add">
+                <span class="row__name">アップスタイル</span>
+                <span class="row__price">—</span>
+              </div>
+              <div class="row row--add">
+                <span class="row__name">着付け前のヘアセット</span>
+                <span class="row__price">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp fade-up" style="margin-top:0">
+          <div class="grp__head">
+            <h3 class="grp__name">ヘッドスパ</h3>
+            <span class="grp__en">Head Spa</span>
+          </div>
+          <div class="grp__body">
+            <div class="rows" style="margin-top:0">
+              <div class="row">
+                <span class="row__name">ヘッドスパ</span>
+                <span class="row__price">—</span>
+              </div>
+              <div class="row">
+                <span class="row__name">炭酸スパ</span>
+                <span class="row__price">—</span>
+              </div>
+              <div class="row row--add">
+                <span class="row__name">スパ＋トリートメント</span>
+                <span class="row__price">—</span>
+              </div>
+              <div class="row row--add">
+                <span class="row__name">スパ＋ブロー</span>
+                <span class="row__price">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-note fade-up">
+        <span class="np">料金は施術内容と</span><span class="np">髪の長さによって</span><span class="np">変わります。詳しくは</span><span class="np">ご予約の際に</span><span class="np">お問い合わせください。</span>
+      </p>
+    </div>
+  </section>
+
+  
+  <section id="concept" class="sec sec--tint">
+    <div class="inbox">
+      <h2 class="ttl">
+        <span class="ttl__jp">当店について</span>
+        <span class="ttl__en">About</span>
+      </h2>
+      <div class="cc">
+        <div class="cc__photo ph"><img src="https://images.unsplash.com/photo-1712213396688-c6f2d536671f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8aGFpciUyMHNhbG9uJTIwaGFuZHMlMjBjbG9zZXVwfGVufDF8MHx8fDE3ODcyNzgwMjR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="施術の様子 or 店内" loading="lazy" decoding="async"></div>
+        <div class="cc__text fade-up">
+          <h3 class="cc__decl">
+            <span class="np">今日の髪を、</span><span class="np">次の一か月ごと考える。</span>
+          </h3>
+          <p class="lead">
+            <span class="np">その日の仕上がりだけでなく、</span><span class="np">伸びてきたときに</span><span class="np">どう見えるかまで含めて</span><span class="np">ご提案しています。</span><span class="np">扱いにくいと感じている点は</span><span class="np">遠慮なくお聞かせください。</span><span class="np">できることをご説明します。</span>
+          </p>
+          <p class="lead">
+            <span class="np">初めての方には、</span><span class="np">普段の手入れの時間や</span><span class="np">気になっているところを</span><span class="np">先に伺います。</span><span class="np">無理におすすめはしません。</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="access" class="sec">
+    <div class="inbox">
+      <h2 class="ttl">
+        <span class="ttl__jp">アクセス</span>
+        <span class="ttl__en">Access</span>
+      </h2>
+      <div class="access">
+        <div class="access__body fade-up">
+          <dl class="info">
+            <div><dt>住所</dt><dd>東京都杉並区荻窪５丁目２１−８ １F</dd></div>
+            <div><dt>電話</dt><dd class="num">03-3398-6286</dd></div>
+            <div><dt>営業時間</dt><dd class="num">10:00〜20:00</dd></div>
+            <div><dt>定休日</dt><dd>火曜定休</dd></div>
+            <div><dt>アクセス</dt><dd>—</dd></div>
+            <div><dt>駐車場</dt><dd></dd></div>
+          </dl>
+        </div>
+        <div class="info__map ph"><img src="https://images.unsplash.com/photo-1785594732247-d874f32fb1f1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NXx8aGFpciUyMHNhbG9uJTIwc3RvcmVmcm9udCUyMGV4dGVyaW9yfGVufDF8MHx8fDE3ODcyNzgwMzB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="reserve" class="sec sec--tint">
+    <div class="inbox-min reserve fade-up">
+      <h2 class="ttl ttl--c">
+        <span class="ttl__jp">ご予約</span>
+        <span class="ttl__en">Reservation</span>
+      </h2>
+      <p class="lead" style="max-width:30em;margin:0 auto">
+        <span class="np">ご予約・ご相談は</span><span class="np">お電話またはメールで</span><span class="np">承っています。</span>
+      </p>
+      <div class="reserve__btns">
+        <a class="btn-lg btn-lg--fill" href="#reserve"><span>WEB予約</span></a>
+        <a class="btn-lg" href="tel:0300000000"><span>お電話で予約</span></a>
+      </div>
+      <p class="reserve__tel">
+        03-3398-6286
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inbox">
+    <span class="brand">
+      <span class="brand__en">AURUM Hair Design</span>
+      <span class="brand__jp">美容院 オーラム ヘア デザイン(AURUM Hair Design)</span>
+    </span>
+    <p>
+      東京都杉並区荻窪５丁目２１−８ １F<br>03-3398-6286 10:00〜20:00
+    </p>
+    <small>© 美容院 オーラム ヘア デザイン(AURUM Hair Design)</small>
+  </div>
+</footer>
+
+<div class="sp-bar">
+  <a href="tel:0300000000">電話</a>
+  <a href="#reserve">WEB予約</a>
+</div>
+
+<script>
+  // スクロール出現（IntersectionObserver）— 文字ブロックだけ。写真は隠さない
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.fade-up').forEach(function(el){ io.observe(el); });
+
+</script>
+<p class="photo-credit" style="font-size:11px;text-align:center;padding:12px 16px;margin:0">Photo by <a href="https://unsplash.com/@gisellelazcano?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Giselle Lazcano</a>、<a href="https://unsplash.com/@phuongtography?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Phuong Nguyen</a>、<a href="https://unsplash.com/@ionelaaaaa?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Ionela Mat</a>、<a href="https://unsplash.com/@smrodriguez?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">SM Rodriguez</a> on <a href="https://unsplash.com/?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
+<section id="privacy-policy" class="legal">
+  <div class="narrow">
+    <h2>プライバシーポリシー</h2>
+    <p>美容院 オーラム ヘア デザイン(AURUM Hair Design)（所在地：日本、〒167-0051 東京都杉並区荻窪５丁目２１−８ １F）は、お客様の個人情報保護に努めます。</p>
+    <h3>収集する情報</h3>
+    <p>お問い合わせフォームより氏名・メールアドレス・お問い合わせ内容を収集します。</p>
+    <h3>Cookieと解析ツール</h3>
+    <p>当サイトはアクセス解析ツールを使用しておらず、閲覧の記録を目的としたCookieも設置していません。</p>
+    <h3>お問い合わせ</h3>
+    <p>個人情報に関するお問い合わせは contact@eleanor-dev.com までご連絡ください。</p>
+  </div>
+</section>
+<script data-vbar-offset>
+(function(){
+  var bar = document.querySelector('nav.vbar');
+  if (!bar) return;
+  var pinned = [];
+  var scan = function(){
+    pinned = [];
+    var all = document.body.querySelectorAll('*');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (el === bar || bar.contains(el)) continue;
+      var cs = getComputedStyle(el);
+      if (cs.position !== 'fixed') continue;
+      /* 元の top は一度だけ測って覚える。再スキャンで**自分が書いた値**を
+         読むと「top が 60 を超えたから対象外」と判定してしまい、
+         下げたきり追随が止まる（2026-08-15 実測） */
+      var top = el.__vbarTop;
+      if (top === undefined) {
+        top = parseFloat(cs.top);
+        if (isNaN(top) || top > 60) continue;
+        el.__vbarTop = top;
+      }
+      if (el.getBoundingClientRect().height >= innerHeight * 0.9) continue;
+      pinned.push({el: el, top: top});
+    }
+  };
+  var sync = function(){
+    var d = Math.max(0, bar.getBoundingClientRect().bottom);
+    for (var i = 0; i < pinned.length; i++) {
+      pinned[i].el.style.top = (pinned[i].top + d) + 'px';
+    }
+  };
+  var refresh = function(){ scan(); sync(); };
+  addEventListener('scroll', sync, {passive: true});
+  addEventListener('resize', refresh);
+  addEventListener('load', refresh);
+  refresh();
+})();
+</script>
+</body>
+</html>
